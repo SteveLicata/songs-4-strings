@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  title: MyString
+  permalink: MyString
+  body: MyString
+  body_chords_html: MyString
+  body_stripped: MyString
+  authors: MyString
+  chords: MyString
+
+two:
+  user_id: 1
+  title: MyString
+  permalink: MyString
+  body: MyString
+  body_chords_html: MyString
+  body_stripped: MyString
+  authors: MyString
+  chords: MyString

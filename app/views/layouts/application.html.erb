@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FinalProject</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+
+    <nav>
+	    <% if (user_signed_in?) %>
+		    <%= link_to 'Sign Out', { :action => 'destroy', :controller => 'devise/sessions'},	method: :delete %>
+
+	    <% else %>
+		    <%= link_to 'Sign In', new_user_session_path %>
+		    <%= link_to 'Sign Up', new_user_registration_path %>
+	    <% end %>
+    </nav>
+
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
+    <%= yield %>
+
+  </body>
+</html>
