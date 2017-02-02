@@ -4,7 +4,7 @@ class SongsController < ApplicationController
 
   def index
     @songs = Song.all
-    @user - User.find(current_id)
+    @user = User.find(current_user)
     @saved = @user.songs
   end
 
@@ -13,6 +13,16 @@ class SongsController < ApplicationController
   end
 
   def song_guitar_party_api
+    @message = "Songs"
+    @song = params[:song_search]
+    puts "current user", current_user.inspect
+
+      if current_user != nil
+        @user = User.find(current_user.id)
+        @response = HTTParty.get("http://api.guitarparty.com/v2/songs/?query=#{@song}", headers: {"Guitarparty-Api-Key" => "#{ENV['GUITAR_PARTY_API_KEY']}"})
+
+        puts "HERE IS RESPONSE:", @response.inspect
+      end
   end
 
   def create
@@ -51,6 +61,7 @@ class SongsController < ApplicationController
   end
 
   def song_params
+    params.require(:song).permit(:song_search, :user_id, :title, :permalink, :body, :body_chords_html, :body_stripped, :authors, :chords)
   end
 
 end

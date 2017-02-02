@@ -5,6 +5,22 @@ Rails.application.routes.draw do
   # welcome route
   root "welcome#home", as: "the_home_page"
 
+  # song search routes
+  get "/songs/search" => "songs#song_form", as: "song_search"
+
+  post "/songs/guitar-party-api" => "songs#song_guitar_party_api"
+
+  get "/songs/guitar-party-api-call" => "songs#guitar_party_api", as: "guitar_party_song_api"
+
+
+  # chord search routes
+  get "/chord/search" => "chords#chord_form", as: "chord_search"
+
+  post "/chords/guitar-party-api" => "chords#chord_guitar_party_api"
+
+  get "/chords/guitar-party-api-call" => "chords#guitar_party_api", as: "guitar_party_chord_api"
+
+
   # user routes
   resources :users
 
@@ -13,5 +29,8 @@ Rails.application.routes.draw do
 
   # chord routes
   resources :chords
+
+  # playlist routes
+  resources :playlists
 
 end

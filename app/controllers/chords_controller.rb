@@ -13,6 +13,16 @@ class ChordsController < ApplicationController
   end
 
   def chord_guitar_party_api
+    @message = "Chords"
+    @chord = params[:chord_search]
+    puts "current user", current_user.inspect
+
+      if current_user != nil
+        @user = User.find(current_user.id)
+        @response = HTTParty.get("http://api.guitarparty.com/v2/chords/?query=#{@chord}", headers: {"Guitarparty-Api-Key" => "#{ENV['GUITAR_PARTY_API_KEY']}"})
+
+        puts "HERE IS RESPONSE:", @response.inspect
+      end
   end
 
   def create
@@ -48,6 +58,7 @@ class ChordsController < ApplicationController
 
   private
   def chord_params
+    params.require(:chord).permit(:chord_search, :user_id, :code, :image_url, :name)
   end
 
 end

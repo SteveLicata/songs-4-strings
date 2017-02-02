@@ -13,6 +13,12 @@
 
     <nav>
 	    <% if (user_signed_in?) %>
+        <%= link_to "Song Search", song_search_path %>
+        <%= link_to "Chord Search", chord_search_path %>
+        <%= link_to "My SongBook", songs_path %>
+        <%= link_to "Playlists", playlists_path %>
+        <%= link_to "Chords", chords_path %>
+        <%= link_to "Profile", user_path(current_user.id) %>
 		    <%= link_to 'Sign Out', { :action => 'destroy', :controller => 'devise/sessions'},	method: :delete %>
 
 	    <% else %>

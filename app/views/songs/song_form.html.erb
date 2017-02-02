@@ -1,0 +1,7 @@
+<h4>Search for a Song:</h4>
+<br>
+  <%= form_tag("/songs/guitar-party-api", method: "post") do |f| %>
+    <%= label_tag(:song_search, "Search for a Song:") %>
+    <%= text_field_tag(:song_search) %> <br>
+    <%= submit_tag("Submit")%>
+  <% end %>

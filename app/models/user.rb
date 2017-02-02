@@ -15,5 +15,6 @@ class User < ApplicationRecord
   # associations
   has_many :songs
   has_many :chords
+  has_many :playlists
 
   end
