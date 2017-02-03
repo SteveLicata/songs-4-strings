@@ -1,0 +1,19 @@
+<h4>You Searched For: <%= @chord %></h4>
+
+
+<h4>Chord Name: <%= @response["objects"][0]["name"] %></h4><br>
+
+<h4>Fretboard "Code": <%= @response["objects"][0]["code"]%></h4><br>
+
+
+<img src=<%= @response["objects"][0]["image_url"]%>>
+
+<p id="savebttn">
+
+  <% if current_user != nil %>
+    <%= link_to '<i class="medium material-icons icon-green">library_add</i>'.html_safe, {action: :create, chord_search: @chord, user_id: current_user.id, code: @code, image_url: @image, name: @name}, method: :post, remote: true, class: 'savebbttn' %>
+  <%else %>
+    <a href="/users/sign_up"> Sign Up</a>
+  <%end %>
+    <i class="medium material-icons deletebttn "></i>
+</p>

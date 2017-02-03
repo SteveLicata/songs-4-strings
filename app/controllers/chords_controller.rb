@@ -49,6 +49,20 @@ class ChordsController < ApplicationController
   end
 
   def update
+    puts "check here", params.inspect
+    @chord = Chord.find(params[:id])
+    @chord.update({
+      chord_search: params[:chord_search],
+      user_id: params[:user_id],
+      code: params[:code],
+      image_url: params[:image_url],
+      name: params[:name]
+      })
+      if (@chord)
+        redirect_to url_for(:controller => :chords, :action => :show, :id => params[:id])
+      else
+        redirect_to url_for(:controller => :chords, :action => :edit)
+      end
   end
 
   def destroy

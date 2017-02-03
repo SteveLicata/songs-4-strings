@@ -35,7 +35,7 @@ class SongsController < ApplicationController
     body_chords_html: params[:body_chords_html],
     body_stripped: params[:body_stripped],
     authors: params[:authors],
-    chords: params[]
+    chords: params[:chords]
     )
     @new_song.save
 
@@ -53,6 +53,24 @@ class SongsController < ApplicationController
   end
 
   def update
+    puts "check here", params.inspect
+    @song = Song.find(params[:id])
+    @song.update({
+      song_search: params[:song_search],
+      user_id: params[:user_id].to_i,
+      title: params[:title],
+      permalink: params[:permalink],
+      body: params[:body],
+      body_chords_html: params[:body_chords_html],
+      body_stripped: params[:body_stripped],
+      authors: params[:authors],
+      chords: params[:chords]
+      })
+      if (@song)
+        redirect_to url_for(:controller => :songs, :action => :show, :id => params[:id])
+      else
+        redirect_to url_for(:controller => :songs, :action => :edit)
+      end
   end
 
   def destroy
@@ -60,6 +78,7 @@ class SongsController < ApplicationController
       redirect_to url_for(:controller => :songs, :action => :index)
   end
 
+  private
   def song_params
     params.require(:song).permit(:song_search, :user_id, :title, :permalink, :body, :body_chords_html, :body_stripped, :authors, :chords)
   end

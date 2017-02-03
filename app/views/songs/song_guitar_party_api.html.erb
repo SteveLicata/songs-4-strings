@@ -1,0 +1,33 @@
+<h4>You Searched For: <%= @song %></h4>
+
+<h4>Title: <%= @response["objects"][0]["title"] %></h4>
+
+<h4>Author(s):
+  <% @response["objects"][0]["authors"].each do |author| %>
+    <%= author["name"] %>
+  <% end %></h4>
+
+<a href="<%= @response["objects"][0]["permalink"] %>"><h4>Link To Song</h4></a>
+
+<h4>Body: <br> <%== @response["objects"][0]["body"] %></h4><br>
+
+<h4>Lyrics & Chords:
+  <%== @response["objects"][0]["body_chords_html"] %></h4><br>
+
+<h4>Lyrics: <br>
+  <%== @response["objects"][0]["body_stripped"] %></h4><br>
+
+<h4><%= @song %> Chords: <br>
+  <% @response["objects"][0]["chords"].each do |chord| %></h4><br>
+    <img src=<%= chord["image_url"] %>>
+  <% end %>
+
+<p id="savebttn">
+
+  <% if current_user != nil %>
+    <%= link_to '<i class="medium material-icons icon-green">library_add</i>'.html_safe, {action: :create, song_search: @song, user_id: current_user.id, title: @title, permalink: @permalink, body: @body, body_chords_html: @body_chords_html, body_stripped: @body_stripped, authors: @authors, chords: @chords}, method: :post, remote: true, class: 'savebbttn' %>
+  <%else %>
+    <a href="/users/sign_up"> Sign Up</a>
+  <%end %>
+    <i class="medium material-icons deletebttn "></i>
+</p>

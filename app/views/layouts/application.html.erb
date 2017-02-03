@@ -4,6 +4,11 @@
     <title>FinalProject</title>
     <%= csrf_meta_tags %>
 
+    <!-- materialize -->
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+    <!-- materialize icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -16,7 +21,7 @@
         <%= link_to "Song Search", song_search_path %>
         <%= link_to "Chord Search", chord_search_path %>
         <%= link_to "My SongBook", songs_path %>
-        <%= link_to "Playlists", playlists_path %>
+        <%= link_to "Setlists", playlists_path %>
         <%= link_to "Chords", chords_path %>
         <%= link_to "Profile", user_path(current_user.id) %>
 		    <%= link_to 'Sign Out', { :action => 'destroy', :controller => 'devise/sessions'},	method: :delete %>
@@ -32,6 +37,10 @@
     <p class="alert"><%= alert %></p>
 
     <%= yield %>
+
+    <!-- materialize -->
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
 
   </body>
 </html>
