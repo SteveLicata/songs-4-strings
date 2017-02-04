@@ -1,8 +1,49 @@
 // Place all the styles related to the Welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  background-color: #CFD8DC;
+}
 
 img {
   height: 100px;
   width: 100px;
+}
+
+h1 {
+  // font-family: 'Lakki Reddy', cursive;
+  font-family: 'Seymour One', sans-serif;
+  text-align: center;
+}
+
+h2 {
+  font-family: 'Libre Franklin', sans-serif;
+  text-align: center;
+}
+
+h4 {
+  font-family: 'Taviraj', serif;
+  text-align: center;
+}
+
+.welcome {
+
+}
+
+.carouselimage {
+  height: 300px;
+  width: 300px;
+}
+
+.material-icons {
+  font-size: 50px;
+}
+
+.profile, .newprofile, .updateprofile, .loginprofile, .chordsearch, .songsearch, .setlistindex, .newplaylist {
+  text-align: center;
+}
+
+#chordsearch, #songsearch {
+  height: 400px;
+  width: 500px;
 }

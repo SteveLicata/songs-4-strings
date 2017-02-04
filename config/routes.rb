@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   # welcome route
-  root "welcome#home", as: "the_home_page"
+  root "welcome#home", as: "home_page"
 
   # song search routes
   get "/songs/search" => "songs#song_form", as: "song_search"

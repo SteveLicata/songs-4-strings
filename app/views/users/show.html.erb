@@ -1,8 +1,15 @@
-<h4>Username:</h4><%= @user.username %>
-<br>
-<h4>Email:</h4><%= @user.email %>
-<br>
-<h4>Avatar:</h4><%= image_tag @user.avatar.url %>
-<br>
+<div class="profile container">
+  <div class="row">
+    <div class="col s6 offset-s3">
 
-<h4><%= link_to "Edit Profile", edit_user_registration_path %></h4>
+      <h4>Username:</h4><%= @user.username %>
+      <br>
+      <h4>Email:</h4><%= @user.email %>
+      <br>
+      <h4>Avatar:</h4><%= image_tag @user.avatar.url %>
+      <br>
+
+      <h4><%= link_to "Edit Profile", edit_user_registration_path %></h4>
+    </div>
+  </div>
+</div>

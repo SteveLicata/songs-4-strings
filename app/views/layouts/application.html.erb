@@ -3,8 +3,12 @@
   <head>
     <title>FinalProject</title>
     <%= csrf_meta_tags %>
-
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Seymour+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Franklin|Taviraj" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lakki+Reddy" rel="stylesheet">
     <!-- materialize -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
     <!-- materialize icons -->
@@ -15,22 +19,28 @@
 
   <body>
 
-
     <nav>
-	    <% if (user_signed_in?) %>
-        <%= link_to "SongBook", songs_path %> |
-        <%= link_to "Setlists", playlists_path %> |
-        <%= link_to "Chords", chords_path %> |
-        <%= link_to "Song Search", song_search_path %> |
-        <%= link_to "Chord Search", chord_search_path %> |
-        <%= link_to "Profile", user_path(current_user.id) %> |
-		    <%= link_to 'Sign Out', { :action => 'destroy', :controller => 'devise/sessions'},	method: :delete %>
+      <div class="nav-wrapper grey">
+        <a href="#" class="brand-logo"><h4>Songs4Strings</h4></a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
 
-	    <% else %>
-		    <%= link_to 'Sign In', new_user_session_path %>
-		    <%= link_to 'Sign Up', new_user_registration_path %>
-	    <% end %>
-    </nav>
+            <% if (user_signed_in?) %>
+              <li class"active"><%= link_to "Home", home_page_path %></li>
+              <li class"active"><%= link_to "SongBook", songs_path %></li>
+              <li class"active"><%= link_to "Setlists", playlists_path %></li>
+              <li class"active"><%= link_to "Chords", chords_path %></li>
+              <li class"active"><%= link_to "Song Search", song_search_path %></li>
+              <li class"active"><%= link_to "Chord Search", chord_search_path %></li>
+              <li class"active"><%= link_to "Profile", user_path(current_user.id) %></li>
+              <li class"active"><%= link_to 'Sign Out', { :action => 'destroy', :controller => 'devise/sessions'},	method: :delete %></li>
+            <% else %>
+              <li class"active"><%= link_to 'Sign In', new_user_session_path %></li>
+              <li class"active"><%= link_to 'Sign Up', new_user_registration_path %></li>
+            <% end %>
+
+          </ul>
+        </div>
+      </nav>
 
 
     <p class="notice"><%= notice %></p>

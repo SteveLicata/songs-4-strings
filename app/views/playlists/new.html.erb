@@ -1,11 +1,19 @@
-<h4>Create Setlist</h4>
+<div class="newplaylist container">
+  <div class="row">
+    <div class="col s6 offset-s3">
 
-<%= form_for Playlist.new do |f| %>
-  <%= f.label :playlistname %>
-  <%= f.text_field :playlistname %>
+      <h4>Create Setlist</h4>
 
-  <%= f.label :description %>
-  <%= f.text_field :description %>
+      <%= form_for Playlist.new do |f| %>
+        <%= f.label :playlistname %>
+        <%= f.text_field :playlistname %>
 
-  <%= f.submit %>
-<% end %>
+        <%= f.label :description %>
+        <%= f.text_field :description %>
+
+        <%= f.submit %>
+      <% end %>
+
+    </div>
+  </div>
+</div>

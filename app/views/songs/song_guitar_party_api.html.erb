@@ -22,7 +22,10 @@
     <% @image_url = chord["image_url"] %>
     <img src=<%= @image_url %>>
 
+      <!-- see if this works -->
     <% @chords_img_arr.push( @image_url ) %>
+    <!-- this line: -->
+    <img src= <%= @chords_img_arr.push( @image_url ) %>>
 
   <% end %>
 
@@ -38,7 +41,7 @@
     <br>
 
     <!-- <%= link_to '<i class="medium material-icons playlistbttn ">playlist_add</i>'.html_safe, {action: :create, controller: :playlists, playlistname: @playlistname, description: @description, user_id: current_user.id}, method: :post, class: 'playlistsbttn' %> -->
-    
+
   <% else %>
     <a href="/users/sign_up"> Sign Up</a>
   <% end %>
