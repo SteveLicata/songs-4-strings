@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170202181513) do
+ActiveRecord::Schema.define(version: 20170203195531) do
 
   create_table "chords", force: :cascade do |t|
     t.integer  "user_id"
@@ -28,11 +28,11 @@ ActiveRecord::Schema.define(version: 20170202181513) do
   end
 
   create_table "playlists", force: :cascade do |t|
-    t.string   "name"
     t.string   "description"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "playlistname"
   end
 
   create_table "playlists_songs", id: false, force: :cascade do |t|
@@ -49,7 +49,6 @@ ActiveRecord::Schema.define(version: 20170202181513) do
     t.string   "body_chords_html"
     t.string   "body_stripped"
     t.string   "authors"
-    t.string   "chords"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.string   "song_search"

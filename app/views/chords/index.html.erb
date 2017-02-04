@@ -1,1 +1,7 @@
 <h4>Favorite Chords:</h4>
+
+<% @saved.each do |response| %>
+  <h4>Name: <%= response.name %></h4>
+  <h4> <img src= <%= response.image_url %> > </h4>
+  <h4>Fretboard "Code": <%= response.code %></h4>
+<% end %>

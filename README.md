@@ -9,22 +9,22 @@ GitHub: https://github.com/SteveLicata/final-project
 Guitar Party (API): http://www.guitarparty.com/
 
 
-Things you may want to cover:
+Technologies used in this app:
 
-* Ruby version
+* Ruby on Rails
 
-* System dependencies
+* Devise
 
-* Configuration
+* Paperclip
 
-* Database creation
+* SQLite3/ActiveRecord
 
-* Database initialization
+* Guitar Party API
 
-* How to run the test suite
+* HTML5
 
-* Services (job queues, cache servers, search engines, etc.)
+* CSS3
 
-* Deployment instructions
+* Materialize
 
-* ...
+* JavaScript

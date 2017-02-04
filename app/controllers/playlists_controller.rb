@@ -5,17 +5,24 @@ class PlaylistsController < ApplicationController
   def index
     @playlist = Playlist.all
     @user = User.find(current_user.id)
-    @saved = @user.playlists
+    @saved_playlists = @user.playlists
   end
 
 
   def create
     @new_playlist = Playlist.new(
-    name: params[:name],
+    playlistname: params[:playlistname],
     description: params[:description],
     user_id: params[:user_id],
     )
     @new_playlist.save
+
+    if (@new_playlist)
+      redirect_to url_for(:controller => :playlists, :action => :index, :id => params[:id])
+    else
+      redirect_to url_for(:controller => :playlists, :action => :edit)
+    end
+
   end
 
   def edit
@@ -32,7 +39,7 @@ class PlaylistsController < ApplicationController
 
   private
   def playlist_params
-    params.require(:playlist).permit(:name, :description, :user_id)
+    params.require(:playlist).permit(:playlistname, :description, :user_id)
   end
 
 

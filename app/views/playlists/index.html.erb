@@ -1,1 +1,10 @@
-<h4>Playlists:</h4>
+<h4> <%= link_to "Create Setlist", new_playlist_path %> </h4>
+
+<h4>All Setlists:</h4>
+<h5>Click a playlist, takes you to actual playlist.</h5>
+
+
+<% @playlist.each do |playlist| %>
+  <%= playlist %>
+
+  <% end %>

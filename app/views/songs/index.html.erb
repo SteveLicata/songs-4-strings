@@ -1,1 +1,15 @@
 <h4>My Songbook:</h4>
+
+<% @saved_songs.each do |response| %>
+  <h4>Song: <%= response.song_search %></h4>
+  <h4>Title: <%= response.title %> </h4>
+  <h4>Author(s): <%= response.authors %> </h4>
+  <h4>Link: <a href="<%= response.permalink %>">Link to Song</a> </h4>
+  <h4>Body Chords: <%== response.body_chords_html %> </h4>
+  <hr>
+<% end %>
+
+<% @saved_song_chords.each do |chords| %>
+  <h4>Chords: <img src= <%= chords.image_url %> > </h4>
+  <hr>
+<% end %>

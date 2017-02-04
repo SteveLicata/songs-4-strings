@@ -35,13 +35,6 @@ class ChordsController < ApplicationController
     )
     @new_chord.save
 
-    respond_to do |format|
-      # If request is JS (AJAX)
-      format.js
-
-      # If request is normal Rails way
-      format.html { redirect_to recipes_path }
-    end
   end
 
   def edit

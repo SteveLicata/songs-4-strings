@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
 
   def home
-    @message = "Welcome!"
+    @message = "Songs4Strings"
   end
 
 end

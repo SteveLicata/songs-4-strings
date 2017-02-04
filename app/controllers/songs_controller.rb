@@ -4,8 +4,11 @@ class SongsController < ApplicationController
 
   def index
     @songs = Song.all
-    @user = User.find(current_user)
-    @saved = @user.songs
+    @user = User.find(current_user.id)
+    @saved_songs = @user.songs
+    puts "SAVED SONGS: ", @saved_songs
+    @saved_song_chords = @saved_songs.chords
+    puts "SAVED SONG CHORDS", @saved_song_chords
   end
 
   def song_form
@@ -26,26 +29,68 @@ class SongsController < ApplicationController
   end
 
   def create
+    puts "LET'S CREATE A NEW SONG STEVE!"
+    puts "PARAMS:", params
+
+    # Create new song:
     @new_song = Song.new(
-    song_search: params[:song_search],
-    user_id: params[:user_id].to_i,
-    title: params[:title],
-    permalink: params[:permalink],
-    body: params[:body],
-    body_chords_html: params[:body_chords_html],
-    body_stripped: params[:body_stripped],
-    authors: params[:authors],
-    chords: params[:chords]
+      song_search: params[:song_search],
+      user_id: params[:user_id].to_i,
+      title: params[:title],
+      permalink: params[:permalink],
+      # body: params[:body],
+      # body_chords_html: params[:body_chords_html],
+      # body_stripped: params[:body_stripped],
+      authors: params[:authors]
     )
     @new_song.save
 
-    respond_to do |format|
-      #if request is JS (AJAX)
-      format .js
+    puts "THIS IS THE NEW SONG'S ID:", @new_song.id
 
-      #if request is normal Rails
-      formal.html { redirect_to songs_path}
+    # Parameters: {
+    #   "authors"=>"Shifty Shellshock",
+    #   "chords_img_arr" => [
+    #     "http://chords.guitarparty.com/chord-images/guitar_Am_xo221o.png",
+    #     "http://chords.guitarparty.com/chord-images/guitar_C_x32o1o.png",
+    #     "http://chords.guitarparty.com/chord-images/guitar_Dsus2_xxo23o.png",
+    #     "http://chords.guitarparty.com/chord-images/guitar_D7_xxo212.png"
+    #   ],
+    #   "permalink"=>"http://www.guitarparty.com/song/butterfly/",
+    #   "song_search"=>"crazy",
+    #   "title"=>"Butterfly",
+    #   "user_id"=>"1"
+    # }
+
+    # Create new chords associated to this song
+    @chords_img_arr = params[:chords_img_arr]
+
+    @chords_img_arr.each do |img|
+      @new_chord = Chord.create(
+        user_id: params[:user_id],
+        image_url: img
+      )
+
+      # add the song_id to chord
+      @new_chord.songs << @new_song
+
     end
+
+    # #new playlist
+    # @new_playlist = Playlist.new(
+    # name: params[:name],
+    # description: params[:description],
+    # user_id: params[:user_id]
+    # )
+    # @new_playlist.save
+
+
+
+    if (@new_song)
+      redirect_to url_for(:controller => :songs, :action => :index, :id => params[:id])
+    else
+      redirect_to url_for(:controller => :songs, :action => :index)
+    end
+
   end
 
   def edit
@@ -63,8 +108,7 @@ class SongsController < ApplicationController
       body: params[:body],
       body_chords_html: params[:body_chords_html],
       body_stripped: params[:body_stripped],
-      authors: params[:authors],
-      chords: params[:chords]
+      authors: params[:authors]
       })
       if (@song)
         redirect_to url_for(:controller => :songs, :action => :show, :id => params[:id])
