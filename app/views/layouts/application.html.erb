@@ -25,7 +25,6 @@
           <ul id="nav-mobile" class="right hide-on-med-and-down">
 
             <% if (user_signed_in?) %>
-              <li class"active"><%= link_to "Home", home_page_path %></li>
               <li class"active"><%= link_to "SongBook", songs_path %></li>
               <li class"active"><%= link_to "Setlists", playlists_path %></li>
               <li class"active"><%= link_to "Chords", chords_path %></li>
@@ -34,6 +33,7 @@
               <li class"active"><%= link_to "Profile", user_path(current_user.id) %></li>
               <li class"active"><%= link_to 'Sign Out', { :action => 'destroy', :controller => 'devise/sessions'},	method: :delete %></li>
             <% else %>
+              <li class"active"><%= link_to "Home", home_page_path %></li>
               <li class"active"><%= link_to 'Sign In', new_user_session_path %></li>
               <li class"active"><%= link_to 'Sign Up', new_user_registration_path %></li>
             <% end %>
@@ -51,6 +51,5 @@
     <!-- materialize -->
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
-
   </body>
 </html>

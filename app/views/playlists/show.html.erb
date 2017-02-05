@@ -1,1 +1,24 @@
-<h4>Chosen Setlist Songs</h4>
+<div class="setlistindex container">
+  <div class="row">
+    <div class="col s6 offset-s3">
+
+      <!-- setlist name and description -->
+      <h4><u><%= @playlist.playlistname %></u></h4>
+
+      <h4><%= @playlist.description %></h4>
+      <hr>
+
+      <!-- setlist songs -->
+      <h4><% @playlist_songs.songs.each do |songs| %></h4>
+        <ul>
+          <li>
+            <h4> <%= songs.title %></h4>
+            <h4> <%= songs.authors %></h4>
+        </li>
+      </ul>
+      <hr>
+      <% end %>
+
+    </div>
+  </div>
+</div>

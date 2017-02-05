@@ -1,48 +1,59 @@
-<h4>You Searched For: <%= @song %></h4>
-
-<h4>Title: <% @title = @response["objects"][0]["title"] %><%= @title %></h4>
-
-<h4>Author(s):
-  <% @response["objects"][0]["authors"].each do |authors| %>
-    <% @authors = authors["name"] %>
-    <%= @authors %>
-  <% end %></h4>
-
-<% @permalink = @response["objects"][0]["permalink"] %>
-<a href="<%= @permalink %>"><h4>Link To Song</h4></a>
-
-<h4>Lyrics & Chords:
-  <% @body_chords_html = @response["objects"][0]["body_chords_html"] %><%== @body_chords_html %></h4><br>
+<div class="setlistindex container">
+  <div class="row">
+    <div class="col s12">
 
 
-<% @chords_img_arr = [] %>
+  <% if @song != nil %>
 
-<h4><%= @song %> Chords: </h4><br>
-  <% @response["objects"][0]["chords"].each do |chord| %>
-    <% @image_url = chord["image_url"] %>
-    <img src=<%= @image_url %>>
+      <h4>You Searched For: <%= @song %></h4>
 
-      <!-- see if this works -->
-    <% @chords_img_arr.push( @image_url ) %>
-    <!-- this line: -->
-    <img src= <%= @chords_img_arr.push( @image_url ) %>>
+        <h4>Title: <% @title = @response["objects"][0]["title"] %><%= @title %></h4>
 
-  <% end %>
+        <h4>Author(s):
+          <% @response["objects"][0]["authors"].each do |authors| %>
+            <% @authors = authors["name"] %>
+            <%= @authors %>
+          <% end %></h4>
 
-<hr>
+        <% @permalink = @response["objects"][0]["permalink"] %>
+        <a href="<%= @permalink %>"><h4>Link To Song</h4></a>
+
+        <h4>Lyrics & Chords:
+          <% @body_chords_html = @response["objects"][0]["body_chords_html"] %><%== @body_chords_html %></h4><br>
 
 
-<p id="savebttn">
+        <% @chords_img_arr = [] %>
 
-  <% if current_user != nil %>
+        <h4><%= @song %> Chords: </h4><br>
+          <% @response["objects"][0]["chords"].each do |chord| %>
+            <% @image_url = chord["image_url"] %>
+            <img src=<%= @image_url %>>
 
-    <%= link_to '<i class="medium material-icons icon-green">library_add</i>'.html_safe, {action: :create, controller: :songs, song_search: @song, user_id: current_user.id, title: @title, permalink: @permalink, authors: @authors, name: @name, code: @code, chords_img_arr: @chords_img_arr}, method: :post, remote: :true %>
+            <% @chords_img_arr.push( @image_url ) %>
 
-    <br>
+          <% end %>
 
-    <!-- <%= link_to '<i class="medium material-icons playlistbttn ">playlist_add</i>'.html_safe, {action: :create, controller: :playlists, playlistname: @playlistname, description: @description, user_id: current_user.id}, method: :post, class: 'playlistsbttn' %> -->
+          <hr>
+
+
+        <p id="savebttn">
+
+          <p>
+            <%= link_to '<i class="medium material-icons icon-green">library_add</i>'.html_safe, {action: :create, controller: :songs, song_search: @song, user_id: current_user.id, title: @title, permalink: @permalink, authors: @authors, name: @name, code: @code, chords_img_arr: @chords_img_arr}, method: :post, remote: :true %>
+            <br>
+          Save to Songbook
+          </p>
+          <br>
+
+          <!-- <%= link_to '<i class="medium material-icons playlistbttn ">playlist_add</i>'.html_safe, {action: :create, controller: :playlists, playlistname: @playlistname, description: @description, user_id: current_user.id}, method: :post, class: 'playlistsbttn' %> -->
 
   <% else %>
-    <a href="/users/sign_up"> Sign Up</a>
+          <h4>Please search again.</h4>
   <% end %>
-</p>
+
+
+        </p>
+
+    </div>
+  </div>
+</div>

@@ -7,8 +7,7 @@ class SongsController < ApplicationController
     @user = User.find(current_user.id)
     @saved_songs = @user.songs
     puts "SAVED SONGS: ", @saved_songs
-    @saved_song_chords = @saved_songs.chords
-    puts "SAVED SONG CHORDS", @saved_song_chords
+    # @playlist = Playlist.find(params[:id])
   end
 
   def song_form
@@ -75,15 +74,21 @@ class SongsController < ApplicationController
 
     end
 
-    # #new playlist
-    # @new_playlist = Playlist.new(
-    # name: params[:name],
-    # description: params[:description],
-    # user_id: params[:user_id]
-    # )
-    # @new_playlist.save
+    #new playlist
+    @new_playlist = Playlist.new(
+    name: params[:name],
+    description: params[:description],
+    user_id: params[:user_id]
+    )
+    @new_playlist.save
 
-
+    respond_to do |format|
+      if @new_song.save
+        format.html { redirect_to song_search_path, notice: 'Your song_search_path is now available for questions, get started by clicking on options!' }
+      else
+        format.html { render :create }
+      end
+    end
 
     if (@new_song)
       redirect_to url_for(:controller => :songs, :action => :index, :id => params[:id])

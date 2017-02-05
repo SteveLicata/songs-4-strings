@@ -2,18 +2,21 @@
   <div class="row">
     <div class="col s6 offset-s3">
 
+      <!-- link to create a new setlist -->
       <h4> <%= link_to "Create A New Setlist", new_playlist_path %> </h4>
 
       <br>
 
-      <h4>All Setlists:</h4>
-      <h5>Click a playlist, takes you to actual playlist.</h5>
+      <h4><u>All Setlists:</u></h4>
 
-
-      <% @playlist.each do |playlist| %>
-        <%= playlist %>
-
-        <% end %>
+      <!-- list of all setlists, with view and delete options -->
+      <% @playlists.each do |playlist| %>
+        <h5>Name: <%= playlist.playlistname %></h5>
+        <h5>Description: <%= playlist.description %></h5>
+        <%= link_to "View Setlist", playlist_path(playlist.id) %> |
+        <%= link_to 'Delete Setlist',  { action: :destroy, id: playlist.id }, method: :delete%>
+        <hr>
+      <% end %>
 
     </div>
   </div>

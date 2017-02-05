@@ -1,0 +1,9 @@
+<%= form_for (@playlist) do |f| %>
+  <%= f.label :playlistname %>
+  <%= f.text_field :playlistname %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.submit %>
+<% end %>
