@@ -1,6 +1,6 @@
 About this app:
 
-Songs4Strings is a music app for beginner guitarists or pro guitarists that are gigging musicians. Use the app to search Guitar Party for a song or chord. View the guitar chords, guitar tab, and lyrics to the song, and save them to your Songbook. Create Setlists of your saved songs, and place them in whatever order you like for your next gig. Also, search for a chord and save it to your own Chordbook.
+Use the Songs4Strings music app to search for a song or chord. View the chords (with guitar diagrams) and lyrics to the song, save the song to your Songbook, save the chord to your Chordbook, and link to the music on Guitar Party. Create Setlists of your saved songs, and place them in whatever order you like for your next gig. Great for beginners, hobbyists, and professional musicians.
 
 Heroku:
 
