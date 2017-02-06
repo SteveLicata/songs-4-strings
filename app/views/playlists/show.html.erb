@@ -9,15 +9,36 @@
       <hr>
 
       <!-- setlist songs -->
-      <h4><% @playlist_songs.each do |songs| %></h4>
+      <div class="">
+
         <ul>
-          <li>
-            <h4> <%= songs.title %></h4>
-            <h4> <%= songs.authors %></h4>
+            <li>
+              <h4><% @playlist_songs.each do |song| %></h4>
+              <h4> <%= song.title %></h4>
+              <h4> <%= song.authors %></h4>
+              <%= link_to 'Remove From Setlist',  { action: :remove_song_from_playlist, controller: :playlists, song_id: song.id, playlist_id: @playlist.id }, method: :post, remote: true %>
+              <hr>
+              <% end %>
+          </li>
+        </ul>
+
+    </div>
+
+
+
+
+      <!-- Setlist Songs List -->
+      <!-- <% @song_playlist_ids = [] %>
+
+      <% @playlist.songs.each do |song| %>
+        <% @song_playlist_ids << song.id %>
+      <ul>
+        <li>
+          <%= song.title %>
+          <%= song.authors %>
         </li>
       </ul>
-      <hr>
-      <% end %>
+      <% end %> -->
 
     </div>
   </div>

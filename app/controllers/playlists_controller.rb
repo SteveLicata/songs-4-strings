@@ -6,11 +6,7 @@ class PlaylistsController < ApplicationController
     @playlists = Playlist.all
     @user = User.find(current_user.id)
     @new_playlists = @user.playlists
-    # params for checkbox when creating new playlist
-    # params[:song][:song_ids].each do |song_id|
-    #   @id = song_id.to_i
-    #   @new_playlist.songs << Song.find(@id)
-    # end
+
   end
 
   def new
@@ -20,12 +16,6 @@ class PlaylistsController < ApplicationController
   def create
     @new_playlist = Playlist.create(playlist_params)
     @new_playlist.save
-
-    # params for checkbox when creating new playlist
-    # params[:song][:song_ids].each do |song_id|
-    #   @id = song_id.to_i
-    #   @new_playlist.songs << Song.find(@id)
-    # end
 
     if (@new_playlist)
       redirect_to url_for(:controller => :playlists, :action => :index, :id => params[:id])
@@ -50,6 +40,17 @@ class PlaylistsController < ApplicationController
   def destroy
     Playlist.delete(params[:id])
       redirect_to url_for(:controller => :playlists, :action => :index)
+  end
+
+  def remove_song_from_playlist
+    puts "REMOVE SONG FROM PLAYLIST"
+    # remove one from arr
+
+    # remove songs from setlists
+    @playlist = Playlist.find(params[:playlist_id])
+    @playlist.songs.delete(Song.find(params[:song_id]))
+
+
   end
 
   private

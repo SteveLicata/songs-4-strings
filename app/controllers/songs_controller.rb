@@ -6,8 +6,9 @@ class SongsController < ApplicationController
     @songs = Song.all
     @user = User.find(current_user.id)
     @saved_songs = @user.songs
-    puts "SAVED SONGS: ", @saved_songs
-    @playlist = Playlist.all
+    # puts "SAVED SONGS: ", @saved_songs.inspect
+    @all_playlists = Playlist.all
+    # puts "All Playlists", @playlist.inspect
   end
 
   def song_form
@@ -125,6 +126,17 @@ class SongsController < ApplicationController
   def destroy
     Song.delete(params[:id])
       redirect_to url_for(:controller => :songs, :action => :index)
+  end
+
+  def add_song_to_a_playlist
+    puts "ADD SONG TO PLAYLIST"
+    puts params.inspect
+
+    # Parameters: {"playlist_id"=>"3", "song_id"=>"2"}
+
+    # Connects Playlist ID and Song ID for adding song to playlist
+    Song.find(params[:song_id]).playlists << Playlist.find(params[:playlist_id])
+
   end
 
   private

@@ -1,9 +1,11 @@
-<%= form_for (@playlist) do |f| %>
+<%= form_for @playlist, method: :create do |f| %>
   <%= f.label :playlistname %>
   <%= f.text_field :playlistname %>
 
   <%= f.label :description %>
   <%= f.text_field :description %>
+
+  <%= f.hidden_field :user_id, :value => current_user.id %>
 
   <%= f.submit %>
 <% end %>

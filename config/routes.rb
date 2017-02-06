@@ -12,6 +12,9 @@ Rails.application.routes.draw do
 
   get "/songs/guitar-party-api-call" => "songs#guitar_party_api", as: "guitar_party_song_api"
 
+  # route adds song to playlist
+  post "/songs/add-to-playlist"  => "songs#add_song_to_a_playlist", as: "add_song_to_a_playlist"
+
 
   # chord search routes
   get "/chord/search" => "chords#chord_form", as: "chord_search"
@@ -32,5 +35,8 @@ Rails.application.routes.draw do
 
   # playlist routes
   resources :playlists
+
+  #route to remove song from playlist
+  post "/playlists/remove_song_from_playlist" => "playlists#remove_song_from_playlist", as: "remove_song_from_playlist"
 
 end

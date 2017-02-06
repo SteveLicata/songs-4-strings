@@ -4,20 +4,34 @@
 
       <h4><u>My Songbook:</u></h4>
 
-        <% @saved_songs.each do |response| %>
-          <h4>Title: <%= response.title %> </h4>
-          <h4>Author(s): <%= response.authors %> </h4>
-          <h4>Link: <a href="<%= response.permalink %>">Link to Song</a> </h4>
+        <!-- Display saved songs -->
+        <% @saved_songs.each do |saved_song| %>
 
-          <h4>Add to Setlist:</h4>
-            <%= form_for Playlist.new do |f| %>
-              <%= f.label :setlist %><br>
-              <%= f.collection_select :playlistname, Playlist.all, :id, :playlistname %>
-            <% end %>
 
-          <%= link_to 'Delete Song',  { action: :destroy, id: response.id }, method: :delete%>
+          <h4><%= saved_song.id %>. Title: <%= saved_song.title %> </h4>
+          <h4>Author(s): <%= saved_song.authors %> </h4>
+          <h4>Link: <a href="<%= saved_song.permalink %>">Link to Song</a> </h4>
+
           <hr>
+
+          <!-- Display setlists to add song -->
+          <div class="">Add to Playlist:</div>
+          <div class="dropdown">
+            <% @all_playlists.each do |playlist| %>
+              <%= link_to playlist.playlistname, { action: :add_song_to_a_playlist, controller: :songs, playlist_id: playlist.id, song_id: saved_song.id}, method: :post, remote: true %> |
+            <% end %>
+          </div>
+
+          <hr>
+
+
+
+          <!-- Delete song link -->
+          <%= link_to 'Delete Song',  { action: :destroy, id: saved_song.id }, method: :delete %>
+          <hr>
+
         <% end %>
+
 
     </div>
   </div>
