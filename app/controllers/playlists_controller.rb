@@ -6,17 +6,22 @@ class PlaylistsController < ApplicationController
     @playlists = Playlist.all
     @user = User.find(current_user.id)
     @new_playlists = @user.playlists
+    # params for checkbox when creating new playlist
+    # params[:song][:song_ids].each do |song_id|
+    #   @id = song_id.to_i
+    #   @new_playlist.songs << Song.find(@id)
+    # end
   end
 
   def new
-    @playlist = Playlist.new(params[:playlist])
+    @playlist = Playlist.new
   end
 
   def create
     @new_playlist = Playlist.create(playlist_params)
     @new_playlist.save
 
-    #params for checkbox when creating new playlist
+    # params for checkbox when creating new playlist
     # params[:song][:song_ids].each do |song_id|
     #   @id = song_id.to_i
     #   @new_playlist.songs << Song.find(@id)
@@ -32,7 +37,7 @@ class PlaylistsController < ApplicationController
 
   def show
     @playlist = Playlist.find(params[:id])
-    @playlist_songs = @playlist
+    @playlist_songs = @playlist.songs
   end
 
   def edit

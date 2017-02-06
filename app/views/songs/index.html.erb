@@ -10,9 +10,9 @@
           <h4>Link: <a href="<%= response.permalink %>">Link to Song</a> </h4>
 
           <h4>Add to Setlist:</h4>
-            <%= form_for (@playlists) do |f| %>
-              <%= f.label :playlist %><br>
-              <%= f.collection_select :playlist_id, Playlists.all, :id, :playlistname %>
+            <%= form_for Playlist.new do |f| %>
+              <%= f.label :setlist %><br>
+              <%= f.collection_select :playlistname, Playlist.all, :id, :playlistname %>
             <% end %>
 
           <%= link_to 'Delete Song',  { action: :destroy, id: response.id }, method: :delete%>

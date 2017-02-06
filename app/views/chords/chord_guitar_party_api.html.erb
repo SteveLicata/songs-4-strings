@@ -7,6 +7,14 @@
 
   <h4>You Searched For: <%= @chord %></h4>
 
+  <p id="savebttn">
+    <p>
+      <%= link_to '<i class="medium material-icons icon-green">library_add</i>'.html_safe, {action: :create, controller: :chords, chord_search: @chord, user_id: current_user.id, code: @code, image_url: @image_url, name: @name}, method: :post, class: 'savebbttn' %>
+      <br>
+      Save to Chordbook
+    </p>
+  </p>
+  
       <h4>Chord Name: <% @name = @response["objects"][0]["name"] %><%= @name %></h4><br>
 
       <h4>Fretboard "Code": <% @code = @response["objects"][0]["code"]%><%= @code %></h4><br>
@@ -14,19 +22,11 @@
       <% @image_url = @response["objects"][0]["image_url"]%>
       <img src=<%= @image_url %>>
 
-      <p id="savebttn">
-
-          <p>
-            <%= link_to '<i class="medium material-icons icon-green">library_add</i>'.html_safe, {action: :create, controller: :chords, chord_search: @chord, user_id: current_user.id, code: @code, image_url: @image_url, name: @name}, method: :post, class: 'savebbttn' %>
-            <br>
-            Save to Chordbook
-          </p>
 
 
   <%else %>
           <h4>Please search again.</h4>
   <%end %>
-      </p>
 
     </div>
   </div>

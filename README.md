@@ -28,3 +28,5 @@ Technologies used in this app:
 * Materialize
 
 * Google Fonts
+
+* jQuery

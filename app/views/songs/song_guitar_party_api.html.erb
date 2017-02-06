@@ -3,9 +3,19 @@
     <div class="col s12">
 
 
-  <% if @song != nil %>
+  <% if current_user != nil && @song != nil %>
 
       <h4>You Searched For: <%= @song %></h4>
+
+
+      <p id="savebttn">
+        <p>
+          <%= link_to '<i class="medium material-icons icon-green">library_add</i>'.html_safe, {action: :create, controller: :songs, song_search: @song, user_id: current_user.id, title: @title, permalink: @permalink, authors: @authors, name: @name, code: @code, chords_img_arr: @chords_img_arr}, method: :post, remote: :true %>
+          <br>
+          Save to Songbook
+        </p>
+      </p>
+
 
         <h4>Title: <% @title = @response["objects"][0]["title"] %><%= @title %></h4>
 
@@ -33,17 +43,6 @@
 
           <% end %>
 
-          <hr>
-
-
-        <p id="savebttn">
-
-          <p>
-            <%= link_to '<i class="medium material-icons icon-green">library_add</i>'.html_safe, {action: :create, controller: :songs, song_search: @song, user_id: current_user.id, title: @title, permalink: @permalink, authors: @authors, name: @name, code: @code, chords_img_arr: @chords_img_arr}, method: :post, remote: :true %>
-            <br>
-          Save to Songbook
-          </p>
-          <br>
 
           <!-- <%= link_to '<i class="medium material-icons playlistbttn ">playlist_add</i>'.html_safe, {action: :create, controller: :playlists, playlistname: @playlistname, description: @description, user_id: current_user.id}, method: :post, class: 'playlistsbttn' %> -->
 
@@ -52,7 +51,6 @@
   <% end %>
 
 
-        </p>
 
     </div>
   </div>

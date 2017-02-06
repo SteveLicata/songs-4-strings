@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FinalProject</title>
+    <title>Songs4Strings</title>
     <%= csrf_meta_tags %>
-    <!-- google font -->
-    <link href="https://fonts.googleapis.com/css?family=Seymour+One" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Libre+Franklin|Taviraj" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lakki+Reddy" rel="stylesheet">
     <!-- materialize -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
     <!-- materialize icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Seymour+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Franklin|Taviraj" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lakki+Reddy" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -21,7 +21,7 @@
 
     <nav>
       <div class="nav-wrapper grey">
-        <a href="#" class="brand-logo"><h4>Songs4Strings</h4></a>
+        <a href="#" class="brand-logo"><h4>Songs4Strings <img class="logoimg" src="/assets/acoustic-guitar.svg" alt=""><img class="logoimg" src="/assets/piano-top-view.svg" alt=""><img class="logoimg" src="/assets/musical-notes-symbols.svg" alt=""></h4></a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
 
             <% if (user_signed_in?) %>
@@ -47,6 +47,9 @@
     <p class="alert"><%= alert %></p>
 
     <%= yield %>
+
+
+    <!-- SVG icons from Flaticon.com -->
 
     <!-- materialize -->
     <!-- Compiled and minified JavaScript -->

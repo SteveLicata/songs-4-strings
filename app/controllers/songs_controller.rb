@@ -7,7 +7,7 @@ class SongsController < ApplicationController
     @user = User.find(current_user.id)
     @saved_songs = @user.songs
     puts "SAVED SONGS: ", @saved_songs
-    # @playlist = Playlist.find(params[:id])
+    @playlist = Playlist.all
   end
 
   def song_form
