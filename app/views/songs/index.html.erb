@@ -1,35 +1,31 @@
 <h4><u>My Songbook:</u></h4>
 <div class="setlistindex container">
   <div class="row">
-    <div class="col s6 offset-s3">
+    <div class="col s12">
 
         <!-- Display saved songs -->
         <% @saved_songs.each do |saved_song| %>
-
-          <h4>Title: <%= saved_song.title %> </h4>
-          <h4>Author(s): <%= saved_song.authors %> </h4>
-          <h4><a href="<%= saved_song.permalink %>">Link to Song</a>
-
-      </h4>
-
-          <hr>
-
+        <div class="card grey darken-4">
+            <div class="card-content white-text">
+              <span class="card-title">
+                <h5>Title: <%= saved_song.title %> </h5>
+                <h5>Author(s): <%= saved_song.authors %> </h5>
+                <h5><a href="<%= saved_song.permalink %>">Link to Song</a></h5></span>
+                <hr>
           <!-- Display setlists to add song -->
-          <p>Add to Playlist:</p>
-            <div class="">
+          <h5>Add to Playlist:</h5>
               <% @all_playlists.each do |playlist| %>
                 <%= link_to playlist.playlistname, { action: :add_song_to_a_playlist, controller: :songs, playlist_id: playlist.id, song_id: saved_song.id}, method: :post, remote: true %> |
               <% end %>
             </div>
-
-          <hr>
-
-          <!-- Delete song link -->
-          <%= link_to 'Delete Song',  { action: :destroy, id: saved_song.id }, method: :delete %>
-          <hr>
+          <div class="card-action">
+            <!-- Delete song link -->
+            <%= link_to '<i class="small material-icons">delete</i>'.html_safe, { action: :destroy, id: saved_song.id }, method: :delete %>
+            <hr>
+          </div>
+        </div>
 
         <% end %>
-
 
     </div>
   </div>

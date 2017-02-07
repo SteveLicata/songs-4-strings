@@ -4,9 +4,6 @@
     <title>Songs4Strings</title>
     <%= csrf_meta_tags %>
 
-    <!-- jQuery link for sortable -->
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
     <!-- materialize -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -17,9 +14,15 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- google font -->
+    <link href="https://fonts.googleapis.com/css?family=Homemade+Apple" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Seymour+One" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Libre+Franklin|Taviraj" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lakki+Reddy" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Arsenal:400,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+
+    <!-- jQuery css link for sortable -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -28,9 +31,28 @@
   <body>
 
     <nav>
-      <div class="nav-wrapper grey">
-        <a href="#" class="brand-logo"><h4>Songs4Strings <img class="logoimg" src="/assets/acoustic-guitar.svg" alt=""><img class="logoimg" src="/assets/piano-top-view.svg" alt=""><img class="logoimg" src="/assets/musical-notes-symbols.svg" alt=""></h4></a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <div class="nav-wrapper grey darken-4">
+        <a href="/" class="brand-logo"><h4>SONGS4STRINGS <img class="logoimg" src="/assets/acoustic-guitar.svg" alt=""><img class="logoimg" src="/assets/piano.svg" alt=""><img class="logoimg" src="/assets/playlist.svg" alt=""></h4></a>
+        <a href="" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+
+          <ul class="right hide-on-med-and-down">
+
+            <% if (user_signed_in?) %>
+              <li class"active"><%= link_to "SongBook", songs_path %></li>
+              <li class"active"><%= link_to "Setlists", playlists_path %></li>
+              <li class"active"><%= link_to "Chordbook", chords_path %></li>
+              <li class"active"><%= link_to "Song Search", song_search_path %></li>
+              <li class"active"><%= link_to "Chord Search", chord_search_path %></li>
+              <li class"active"><%= link_to "Profile", user_path(current_user.id) %></li>
+              <li class"active"><%= link_to 'Sign Out', { :action => 'destroy', :controller => 'devise/sessions'},	method: :delete %></li>
+            <% else %>
+              <li class"active"><%= link_to "Home", home_page_path %></li>
+              <li class"active"><%= link_to 'Sign In', new_user_session_path %></li>
+              <li class"active"><%= link_to 'Sign Up', new_user_registration_path %></li>
+            <% end %>
+
+          </ul>
+          <ul class="side-nav" id="mobile-demo">
 
             <% if (user_signed_in?) %>
               <li class"active"><%= link_to "SongBook", songs_path %></li>
@@ -51,17 +73,19 @@
       </nav>
 
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
 
     <%= yield %>
 
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
     <!-- SVG icons from Flaticon.com -->
 
-    <!-- jQuery links -->
+    <!-- jQuery / Materialize Carousel -->
+    <!-- jQuery links for sortable-->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
 
     <!-- materialize -->
     <!-- Compiled and minified JavaScript -->

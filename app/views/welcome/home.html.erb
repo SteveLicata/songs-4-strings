@@ -1,26 +1,41 @@
-<div class="welcome container">
-  <h1><%= @message %></h1>
 
-  <div class="row">
-    <div class="col s12">
-      <!-- <img class="welcomeimg" src="/assets/Music-lyrics-vector-background.jpg" alt=""> -->
-    </div>
+
+<div class="flex-container">
+
+  <div class="flex-items">
+    <div class="songs">S O N G S</div>
+    <div class="four">4</div>
+    <div class="strings">S T R I N G S</div>
   </div>
 
+</div>
 
+
+<!--  -->
+<!--  -->
+<!--  -->
+
+
+
+
+  <br>
+  <br>
+
+  <div class="welcome container">
   <div class="row welcometext">
     <div class="col s12">
 
       <h4>
-        <i class="material-icons">search</i>
+        <%= link_to '<i class="material-icons">search</i>'.html_safe, new_user_session_path %>
       <h4>
 
       <h4>
         Create a personal Songbook or Chordbook.
       </h4>
-
+        <br>
+        <br>
       <h4>
-        <i class="material-icons">library_music</i>
+        <%= link_to '<i class="material-icons">library_music</i>'.html_safe, new_user_registration_path %>
       </h4>
 
       <h4>
@@ -29,19 +44,21 @@
 
     </div>
   </div>
+  <br><br>
 
-<div class="row">
-  <div class="col s12">
+  <div class="row">
+    <div class="col s12">
 
-    <div class="carousel">
-      <a class="carousel-item" href="#one!"><img class="carouselimage"  src="/assets/acoustic2.jpg"></a>
-      <a class="carousel-item" href="#two!"><img class="carouselimage" src="/assets/sheetmusic2.jpg"></a>
-      <a class="carousel-item" href="#three!"><img class="carouselimage" src="/assets/acoustic3.jpg"></a>
-      <a class="carousel-item" href="#four!"><img class="carouselimage" src="/assets/piano1.jpg"></a>
-      <a class="carousel-item" href="#five!"><img class="carouselimage" src="/assets/acoustic4.jpg"></a>
+      <div class="carousel">
+        <a class="carousel-item" href="#one!"><img class="carouselimage"  src="/assets/acoustic2.jpg"></a>
+        <a class="carousel-item" href="#two!"><img class="carouselimage" src="/assets/sheetmusic2.jpg"></a>
+        <a class="carousel-item" href="#three!"><img class="carouselimage" src="/assets/acoustic3.jpg"></a>
+        <a class="carousel-item" href="#four!"><img class="carouselimage" src="/assets/piano1.jpg"></a>
+        <a class="carousel-item" href="#five!"><img class="carouselimage" src="/assets/acoustic4.jpg"></a>
+      </div>
+
     </div>
-
   </div>
-</div>
+
 
 </div

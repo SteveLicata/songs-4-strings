@@ -1,6 +1,6 @@
 <div class="setlistindex container">
   <div class="row">
-    <div class="col s6 offset-s3">
+    <div class="col s12">
 
       <!-- link to create a new setlist -->
       <h4> <%= link_to "Create A New Setlist", new_playlist_path %> </h4>
@@ -11,11 +11,18 @@
 
       <!-- list of all setlists, with view and delete options -->
       <% @playlists.each do |playlist| %>
-        <h5>Name: <%= playlist.playlistname %></h5>
-        <h5>Description: <%= playlist.description %></h5>
-        <%= link_to "View", playlist_path(playlist.id) %> |
-        <%= link_to 'Delete',  { action: :destroy, id: playlist.id }, method: :delete%>
-        <hr>
+        <div class="card grey darken-4">
+            <div class="card-content white-text">
+               <span class="card-title">
+                 <h5>Name: <%= playlist.playlistname %></h5>
+                 <h5>Description: <%= playlist.description %></h5>
+               </span>
+            </div>
+             <div class="card-action">
+                <%= link_to '<i class="material-icons">visibility</i>'.html_safe, playlist_path(playlist.id) %>
+                <%= link_to '<i class="small material-icons">delete</i>'.html_safe,  { action: :destroy, id: playlist.id }, method: :delete%>
+             </div>
+            <hr>
       <% end %>
 
     </div>

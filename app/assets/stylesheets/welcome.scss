@@ -2,21 +2,58 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
-  background-color: #CFD8DC;
-//   background-image: url('/assets/Music-lyrics-vector-background.jpg');
-//   background-repeat: no-repeat;
-//   background-size: cover;
+  // background-color: #CFD8DC;
+  background-color: snow;
+}
+
+//holds welcome image and logo text
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+
+  //background image
+  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),url("/assets/musician-playing-banjo-against-wooden-wall.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+
+  color: white;
+
+  //holds logo words
+  .flex-items {
+    border: 2px solid white;
+    text-align: center;
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+  //word one
+  .songs {
+    font-size: 150px;
+    font-family: 'Arsenal', sans-serif;
+  }
+  //word two
+  .four {
+    font-size: 100px;
+    font-family: 'Arsenal', sans-serif;
+    font-weight: 700;
+    font-style: italic;
+
+  }
+  //word three
+  .strings {
+    font-size: 150px;
+    font-family: 'Arsenal', sans-serif;
+
+  }
+
 }
 
 img {
   height: 100px;
   width: 100px;
-}
-
-h1 {
-  // font-family: 'Lakki Reddy', cursive;
-  font-family: 'Seymour One', sans-serif;
-  text-align: center;
 }
 
 h2 {
@@ -25,25 +62,29 @@ h2 {
 }
 
 h4 {
-  font-family: 'Taviraj', serif;
+  font-family: 'Arsenal', sans-serif;
   text-align: center;
 }
 
-.welcomeimg {
-  height: 700px;
-  width: 1000px;
-  opacity: 0.7;
+.welcome {
+  margin: 0 auto;
 }
 
-.welcometext {
-  margin-bottom: -100;
+.welcomeimg {
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    position: relative;
+    z-index: 0;
 }
 
 .carousel .carousel-item {
   display: block;
   height: 250px;
   width: 250px;
-  margin-top: -100px;
+  // margin-top: -100px;
 }
 .carouselimage {
   height: 250px;
@@ -76,10 +117,43 @@ h4 {
   width: 25px;
 }
 
-// #sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
-// #sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
-// #sortable li span { position: absolute; margin-left: -1.3em; }
+#sortable {
+  border-radius: 1px solid black;
+  // background-color: black;
+  color: black;
+}
+
+#sortable:hover {
+    cursor: move;
+}
+
+#sortable li {
+  margin: 0 3px 3px 3px;
+}
+
+#sortable li span {
+  color:black;
+//   position: absolute;
+//   margin-left: -1.3em;
+}
+
 .chorddiv {
-  background-color: silver;
   text-align: center;
+}
+
+.card {
+  height: auto;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.chordcolordiv {
+background-color: snow;
+width: 20%;
+margin: 0 auto;
+border-radius: 15px;
+}
+
+.setlisttext {
+  width: auto;
 }

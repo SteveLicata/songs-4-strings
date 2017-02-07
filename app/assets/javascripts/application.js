@@ -15,32 +15,3 @@
 //= require turbolinks
 //= require_tree .
 // jQuery / Materialize Carousel
-
-document.addEventListener('turbolinks:load', function() {
-console.log("loaded");
-
-var imageArray = [
-  "/assets/acoustic2.jpg",
-  "/assets/sheetmusic2.jpg",
-  "/assets/acoustic3.jpg",
-  "/assets/piano1.jpg",
-  "/assets/acoustic4.jpg"
-]
-
-var welcomeImage = document.getElementById('welcomeimage');
-
-if (welcomeImage !== null) {
-  console.log("images");
-
-  var i = 0
-  setInterval(function(){
-    if (i == imageArray.length) {
-      i = 0
-    }
-    welcomeImage.src = imageArray[i];
-    i++;
-  }, 3000);
-};
-
-
-}); //end window onload
