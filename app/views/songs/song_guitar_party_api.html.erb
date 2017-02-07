@@ -3,22 +3,9 @@
     <div class="col s12">
 
 
-
   <% if current_user != nil && @song != nil %>
 
       <h4>You Searched For: <%= @song %></h4>
-
-      <!-- Save Button to Save Song to SongBook -->
-      <p id="savebttn">
-        <p>
-          <%= link_to '<i class="medium material-icons icon-green">library_add</i>'.html_safe, {action: :create, controller: :songs, song_search: @song, user_id: current_user.id, title: @title, permalink: @permalink, authors: @authors, name: @name, code: @code, chords_img_arr: @chords_img_arr}, method: :post, remote: :true %>
-          <br>
-          Save to Songbook
-        </p>
-      </p>
-
-
-
 
         <!-- Displays Song Information from API call -->
         <h4>Title: <% @title = @response["objects"][0]["title"] %><%= @title %></h4>
@@ -45,16 +32,21 @@
 
             <% @chords_img_arr.push( @image_url ) %>
 
+            <!-- Save Button to Save Song to SongBook -->
+
           <% end %>
 
+          <p id="savebttn">
+            <p>
+              <%= link_to '<i class="medium material-icons icon-green">library_add</i>'.html_safe, {action: :create, controller: :songs, song_search: @song, user_id: current_user.id, title: @title, permalink: @permalink, authors: @authors, name: @name, code: @code, chords_img_arr: @chords_img_arr}, method: :post, remote: :true %>
+              <br>
+              Save to Songbook
+            </p>
+          </p>
 
-          <!-- <%= link_to '<i class="medium material-icons playlistbttn ">playlist_add</i>'.html_safe, {action: :create, controller: :playlists, playlistname: @playlistname, description: @description, user_id: current_user.id}, method: :post, class: 'playlistsbttn' %> -->
-
-  <% else %>
+      <% else %>
           <h4>Please search again.</h4>
-  <% end %>
-
-
+      <% end %>
 
     </div>
   </div>

@@ -11,15 +11,15 @@
       <!-- setlist songs -->
       <div class="">
 
-        <ul>
-            <li>
-              <h4><% @playlist_songs.each do |song| %></h4>
-              <h4> <%= song.title %></h4>
-              <h4> <%= song.authors %></h4>
-              <%= link_to 'Remove From Setlist',  { action: :remove_song_from_playlist, controller: :playlists, song_id: song.id, playlist_id: @playlist.id }, method: :post, remote: true %>
-              <hr>
-              <% end %>
-          </li>
+        <ul id="sortable">
+            <% @playlist_songs.each do |song| %>
+                <li class="ui-state-default">
+                  <span class="ui-icon ui-icon-arrowthick-2-n-s"> </span>
+                  <strong>Title:</strong> <%= song.title %><br>
+                  <strong>Author:</strong> <%= song.authors %><br>
+                  <%= link_to '<i class="small material-icons">delete</i>'.html_safe, {action: :remove_song_from_playlist, controller: :playlists, song_id: song.id, playlist_id: @playlist.id}, method: :post, remote: true %>
+                </li>
+            <% end %>
         </ul>
 
     </div>

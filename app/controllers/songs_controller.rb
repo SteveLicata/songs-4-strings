@@ -45,7 +45,7 @@ class SongsController < ApplicationController
     )
     @new_song.save
 
-    puts "THIS IS THE NEW SONG'S ID:", @new_song.id
+    puts "THIS IS THE NEW SONG'S ID:", @new_song.inspect
 
     # Parameters: {
     #   "authors"=>"Shifty Shellshock",
