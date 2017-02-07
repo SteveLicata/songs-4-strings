@@ -12,4 +12,4 @@ $(document).ready(function(){
   });
 
 
-});
+}); //end Document Ready

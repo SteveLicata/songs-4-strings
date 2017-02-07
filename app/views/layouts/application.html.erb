@@ -8,16 +8,19 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
     <!-- materialize -->
-  
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+
     <!-- materialize icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <!-- google font -->
     <link href="https://fonts.googleapis.com/css?family=Seymour+One" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Libre+Franklin|Taviraj" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lakki+Reddy" rel="stylesheet">
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -32,7 +35,7 @@
             <% if (user_signed_in?) %>
               <li class"active"><%= link_to "SongBook", songs_path %></li>
               <li class"active"><%= link_to "Setlists", playlists_path %></li>
-              <li class"active"><%= link_to "Chords", chords_path %></li>
+              <li class"active"><%= link_to "Chordbook", chords_path %></li>
               <li class"active"><%= link_to "Song Search", song_search_path %></li>
               <li class"active"><%= link_to "Chord Search", chord_search_path %></li>
               <li class"active"><%= link_to "Profile", user_path(current_user.id) %></li>

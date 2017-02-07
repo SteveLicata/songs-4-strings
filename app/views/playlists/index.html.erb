@@ -7,14 +7,14 @@
 
       <br>
 
-      <h4><u>All Setlists:</u></h4>
+      <h4><u>Setlists:</u></h4>
 
       <!-- list of all setlists, with view and delete options -->
       <% @playlists.each do |playlist| %>
         <h5>Name: <%= playlist.playlistname %></h5>
         <h5>Description: <%= playlist.description %></h5>
-        <%= link_to "View Setlist", playlist_path(playlist.id) %> |
-        <%= link_to 'Delete Setlist',  { action: :destroy, id: playlist.id }, method: :delete%>
+        <%= link_to "View", playlist_path(playlist.id) %> |
+        <%= link_to 'Delete',  { action: :destroy, id: playlist.id }, method: :delete%>
         <hr>
       <% end %>
 

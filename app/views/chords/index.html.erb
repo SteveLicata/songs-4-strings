@@ -1,14 +1,14 @@
-<div class="setlistindex container">
+<h4><u>Favorite Chords:</u></h4>
+<div class="container">
   <div class="row">
-    <div class="col s6 offset-s3">
+    <div class="col s6 offset-s3 chorddiv">
 
-      <h4><u>Favorite Chords:</u></h4>
 
       <% @saved.each do |response| %>
-        <h4>Name: <%= response.name %></h4>
-        <h4> <img src= <%= response.image_url %> > </h4>
-        <h4>Fretboard "Code": <%= response.code %></h4>
-        <%= link_to 'Delete Chord',  { action: :destroy, id: response.id }, method: :delete%>
+        <p>Name: <%= response.name %></p>
+        <p> <img src= <%= response.image_url %> > </p>
+        <p>Fretboard Code: <%= response.code %></p>
+        <%= link_to 'Delete',  { action: :destroy, id: response.id }, method: :delete%>
         <hr>
       <% end %>
 
