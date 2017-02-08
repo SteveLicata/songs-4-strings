@@ -1,0 +1,199 @@
+/* line 4, /Users/SteveLicata/Desktop/final-project/app/assets/stylesheets/welcome.scss */
+body {
+  background-color: snow;
+}
+
+/* line 10, /Users/SteveLicata/Desktop/final-project/app/assets/stylesheets/welcome.scss */
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/musician-playing-banjo-against-wooden-wall.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  color: white;
+}
+/* line 26, /Users/SteveLicata/Desktop/final-project/app/assets/stylesheets/welcome.scss */
+.flex-container .flex-items {
+  border: 2px solid white;
+  text-align: center;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+/* line 33, /Users/SteveLicata/Desktop/final-project/app/assets/stylesheets/welcome.scss */
+.flex-container .songs {
+  font-size: 150px;
+  font-family: 'Arsenal', sans-serif;
+}
+/* line 38, /Users/SteveLicata/Desktop/final-project/app/assets/stylesheets/welcome.scss */
+.flex-container .four {
+  font-size: 100px;
+  font-family: 'Arsenal', sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+/* line 46, /Users/SteveLicata/Desktop/final-project/app/assets/stylesheets/welcome.scss */
+.flex-container .strings {
+  font-size: 150px;
+  font-family: 'Arsenal', sans-serif;
+}
+
+/* line 54, /Users/SteveLicata/Desktop/final-project/app/assets/stylesheets/welcome.scss */
+img {
+  height: 100px;
+  width: 100px;
+}
+
+/* line 59, /Users/SteveLicata/Desktop/final-project/app/assets/stylesheets/welcome.scss */
+h2 {
+  font-family: 'Libre Franklin', sans-serif;
+  text-align: center;
+}
+
+/* line 64, /Users/SteveLicata/Desktop/final-project/app/assets/stylesheets/welcome.scss */
+h4 {
+  font-family: 'Arsenal', sans-serif;
+  text-align: center;
+}
+
+/* line 69, /Users/SteveLicata/Desktop/final-project/app/assets/stylesheets/welcome.scss */
+.welcome {
+  margin: 0 auto;
+}
+
+/* line 73, /Users/SteveLicata/Desktop/final-project/app/assets/stylesheets/welcome.scss */
+.carousel .carousel-item {
+  display: block;
+  height: 250px;
+  width: 250px;
+}
+
+/* line 79, /Users/SteveLicata/Desktop/final-project/app/assets/stylesheets/welcome.scss */
+.carouselimage {
+  height: 250px;
+  width: 250px;
+}
+
+/* line 84, /Users/SteveLicata/Desktop/final-project/app/assets/stylesheets/welcome.scss */
+.material-icons {
+  font-size: 45px;
+}
+
+/* line 88, /Users/SteveLicata/Desktop/final-project/app/assets/stylesheets/welcome.scss */
+.profile, .newprofile, .updateprofile, .loginprofile, .chordsearch, .songsearch, .setlistindex, .newplaylist {
+  text-align: center;
+}
+
+/* line 92, /Users/SteveLicata/Desktop/final-project/app/assets/stylesheets/welcome.scss */
+#chordsearch, #songsearch {
+  height: 400px;
+  width: 500px;
+}
+
+/* line 97, /Users/SteveLicata/Desktop/final-project/app/assets/stylesheets/welcome.scss */
+.welcomeimages {
+  width: 200px;
+  height: 200px;
+  border: solid #99f0ca 3px;
+  border-radius: 50%;
+  padding: 50px;
+}
+
+/* line 105, /Users/SteveLicata/Desktop/final-project/app/assets/stylesheets/welcome.scss */
+.logoimg {
+  height: 25px;
+  width: 25px;
+}
+
+/* line 110, /Users/SteveLicata/Desktop/final-project/app/assets/stylesheets/welcome.scss */
+#sortable {
+  border-radius: 1px solid black;
+  color: black;
+}
+
+/* line 116, /Users/SteveLicata/Desktop/final-project/app/assets/stylesheets/welcome.scss */
+#sortable:hover {
+  cursor: move;
+}
+
+/* line 120, /Users/SteveLicata/Desktop/final-project/app/assets/stylesheets/welcome.scss */
+#sortable li {
+  margin: 0 3px 3px 3px;
+}
+
+/* line 124, /Users/SteveLicata/Desktop/final-project/app/assets/stylesheets/welcome.scss */
+#sortable li span {
+  color: white;
+}
+
+/* line 130, /Users/SteveLicata/Desktop/final-project/app/assets/stylesheets/welcome.scss */
+.chorddiv {
+  text-align: center;
+}
+
+/* line 134, /Users/SteveLicata/Desktop/final-project/app/assets/stylesheets/welcome.scss */
+.card {
+  height: auto;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+/* line 140, /Users/SteveLicata/Desktop/final-project/app/assets/stylesheets/welcome.scss */
+.chordcolordiv {
+  background-color: snow;
+  width: 100px;
+  margin: 0 auto;
+  border-radius: 15px;
+}
+
+/* line 147, /Users/SteveLicata/Desktop/final-project/app/assets/stylesheets/welcome.scss */
+.setlisttext {
+  width: auto;
+  background-color: snow;
+}
+
+/* line 152, /Users/SteveLicata/Desktop/final-project/app/assets/stylesheets/welcome.scss */
+.flex-test {
+  width: 250px;
+  display: flex;
+  justify-content: space-around;
+}
+
+/* line 158, /Users/SteveLicata/Desktop/final-project/app/assets/stylesheets/welcome.scss */
+.flex-card-item {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+/* line 164, /Users/SteveLicata/Desktop/final-project/app/assets/stylesheets/welcome.scss */
+.flex-card-item .carde {
+  width: 250px;
+}
+/* line 168, /Users/SteveLicata/Desktop/final-project/app/assets/stylesheets/welcome.scss */
+.flex-card-item .card.grey.darken-4 {
+  width: 100%;
+}
+/* line 171, /Users/SteveLicata/Desktop/final-project/app/assets/stylesheets/welcome.scss */
+.flex-card-item .card.grey.darken-4 .card-action {
+  text-align: center;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+
+@import "welcome.scss"
