@@ -19,4 +19,8 @@ $(document).on('turbolinks:load',function(){
   // Materialize carousel function
   $('.carousel').carousel();
 
+  //Navbar
+  $(".button-collapse").sideNav();
+
+
 }); //end Document Ready

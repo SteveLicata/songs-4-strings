@@ -1,28 +1,27 @@
 <h4><u>Favorite Chords:</u></h4>
-<div class="container chordscontainer">
-  <div class="row">
+<div class="flex-card-container">
+  <div class="flex-card-item">
 
-    <div class="col s6 offset-s3 chorddiv">
-
-      <% @saved.each do |response| %>
+<!-- FLEXBOX CARDS -->
+    <% @saved.each do |response| %>
+      <div class="flex-test">
         <div class="card grey darken-4">
           <div class="card-content white-text">
             <span class="card-title">
               <h5>Name: <%= response.name %></h5>
               <h5>Fretboard Code: <%= response.code %></h5>
               <div class="chordcolordiv">
-                <img src= <%= response.image_url %>
+                <img src= <%= response.image_url %> >
               </div>
             </span>
           </div>
         <div class="card-action">
           <%= link_to '<i class="small material-icons">delete</i>'.html_safe,  { action: :destroy, id: response.id }, method: :delete%>
         </div>
-        <hr>
-        </div>
-      <% end %>
-
+      </div>
     </div>
+  <% end %>
+
 
   </div>
 </div>

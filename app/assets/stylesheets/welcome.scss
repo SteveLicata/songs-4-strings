@@ -122,7 +122,7 @@ h4 {
 }
 
 #sortable li span {
-  color:black;
+  color:white;
 //   position: absolute;
 //   margin-left: -1.3em;
 }
@@ -146,4 +146,31 @@ border-radius: 15px;
 
 .setlisttext {
   width: auto;
+  background-color: snow;
+}
+
+.flex-test {
+  width: 250px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.flex-card-item {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+
+    .carde {
+      width: 250px;
+    }
+
+    .card.grey.darken-4 {
+      width: 100%;
+
+      .card-action {
+        text-align: center;
+      }
+    }
+
 }
