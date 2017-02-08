@@ -1,5 +1,5 @@
 
-
+<!-- home page image and text -->
 <div class="flex-container">
 
   <div class="flex-items">
@@ -26,7 +26,15 @@
     <div class="col s12">
 
       <h4>
-        <%= link_to '<i class="material-icons">search</i>'.html_safe, new_user_session_path %>
+        <% if (user_signed_in?) %>
+
+          <%= link_to '<i class="material-icons">search</i>'.html_safe, chord_search_path %>
+
+        <% else %>
+
+          <%= link_to '<i class="material-icons">search</i>'.html_safe, new_user_session_path %>
+
+        <% end %>
       <h4>
 
       <h4>
@@ -35,7 +43,16 @@
         <br>
         <br>
       <h4>
-        <%= link_to '<i class="material-icons">library_music</i>'.html_safe, new_user_registration_path %>
+        <% if (user_signed_in?) %>
+
+          <%= link_to '<i class="material-icons">library_music</i>'.html_safe, songs_path %>
+
+        <% else %>
+
+          <%= link_to '<i class="material-icons">library_music</i>'.html_safe, new_user_registration_path %>
+
+        <% end %>
+
       </h4>
 
       <h4>

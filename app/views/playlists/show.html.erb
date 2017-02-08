@@ -17,14 +17,14 @@
             <div class="card grey darken-4">
               <div class="card-content white-text">
                 <li class="ui-state-default">
-                <span class="card-title setlisttext">
-                  <h5>Title: <%= song.title %></h5>
-                  <h5>Author: <%= song.authors %></h5>
-              </span>
+                  <span class="card-title setlisttext">
+                    <h5>Title: <%= song.title %></h5>
+                    <h5>Author: <%= song.authors %></h5>
+                  </span>
               </div>
               <div class="card-action">
                 <%= link_to '<i class="small material-icons">delete</i>'.html_safe, {action: :remove_song_from_playlist, controller: :playlists, song_id: song.id, playlist_id: @playlist.id}, method: :post, remote: true %>
-                <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+                <!-- <span class="ui-icon ui-icon-arrowthick-2-n-s"> </span> -->
               </li>
               </div>
             </div>
