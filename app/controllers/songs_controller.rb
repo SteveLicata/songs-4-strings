@@ -22,7 +22,7 @@ class SongsController < ApplicationController
 
       if current_user != nil
         @user = User.find(current_user.id)
-        @response = HTTParty.get("http://api.guitarparty.com/v2/songs/?query=#{@song}", headers: {"Guitarparty-Api-Key" => "#{ENV['GUITAR_PARTY_API_KEY']}"})
+        @response = HTTParty.get("https://api.guitarparty.com/v2/songs/?query=#{@song}", headers: {"Guitarparty-Api-Key" => "#{ENV['GUITAR_PARTY_API_KEY']}"})
 
         puts "HERE IS RESPONSE:", @response.inspect
       end
