@@ -10,7 +10,7 @@
         <!-- Displays Song Information from API call -->
         <h4>Title: <% @title = @response["objects"][0]["title"] %><%= @title %></h4>
 
-        <h4>Author(s):
+        <h4>Songwriter(s):
           <% @response["objects"][0]["authors"].each do |authors| %>
             <% @authors = authors["name"] %>
             <%= @authors %>

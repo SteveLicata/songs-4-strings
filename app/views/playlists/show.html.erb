@@ -19,7 +19,7 @@
                 <li class="ui-state-default">
                   <span class="card-title setlisttext">
                     <h5>Title: <%= song.title %></h5>
-                    <h5>Author: <%= song.authors %></h5>
+                    <h5>Songwriter(s): <%= song.authors %></h5>
                   </span>
               </div>
               <div class="card-action">
@@ -33,24 +33,6 @@
         </ul>
 
       </div>
-
-
-
-        <!-- sortable setlist songs -->
-        <!-- <div class="">
-
-          <ul id="sortable">
-              <% @playlist_songs.each do |song| %>
-                  <li class="ui-state-default">
-                    <span class="ui-icon ui-icon-arrowthick-2-n-s"> </span>
-                    <strong>Title:</strong> <%= song.title %><br>
-                    <strong>Author:</strong> <%= song.authors %><br>
-                    <%= link_to '<i class="small material-icons">delete</i>'.html_safe, {action: :remove_song_from_playlist, controller: :playlists, song_id: song.id, playlist_id: @playlist.id}, method: :post, remote: true %>
-                  </li>
-              <% end %>
-          </ul>
-
-        </div> -->
 
       <!-- Old code for Setlist Songs List -->
       <!-- <% @song_playlist_ids = [] %>
