@@ -13,7 +13,7 @@
                 <h5><a href="<%= saved_song.permalink %>">Link to Song</a></h5></span>
                 <hr>
           <!-- Display setlists to add song -->
-          <h5>Add to Playlist:</h5>
+          <h5>Add to Setlist:</h5>
               <% @all_playlists.each do |playlist| %>
                 <%= link_to playlist.playlistname, { action: :add_song_to_a_playlist, controller: :songs, playlist_id: playlist.id, song_id: saved_song.id}, method: :post, remote: true %> |
               <% end %>
