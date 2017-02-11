@@ -4,6 +4,8 @@ Use the Songs4Strings music app to search for a song or chord. View the chords (
 
 Heroku: https://songs-4-strings.herokuapp.com/
 
+Demo Login Email: s4sdemologin@gmail.com | Password: music4life
+
 GitHub: https://github.com/SteveLicata/final-project
 
 Guitar Party (API): http://www.guitarparty.com/
