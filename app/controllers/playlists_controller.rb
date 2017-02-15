@@ -43,14 +43,9 @@ class PlaylistsController < ApplicationController
   end
 
   def remove_song_from_playlist
-    puts "REMOVE SONG FROM PLAYLIST"
-    # remove one from arr
-
-    # remove songs from setlists
+    # remove songs from setlists array
     @playlist = Playlist.find(params[:playlist_id])
     @playlist.songs.delete(Song.find(params[:song_id]))
-
-
   end
 
   private

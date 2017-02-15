@@ -3,44 +3,44 @@
     <div class="col s12">
 
   <!-- This view displays the SONG search results (title, composers, link to guitar party site, chords and lyrics, chord images) with a button to save at the bottom -->
-  <% if current_user != nil && @song != nil %>
+      <% if current_user != nil && @song != nil %>
 
-      <h4>You Searched For: <%= @song %></h4>
+          <h4>You Searched For: <%= @song %></h4>
 
-        <!-- Displays Song Information from API call -->
-        <h4>Title: <% @title = @response["objects"][0]["title"] %><%= @title %></h4>
+            <!-- Displays Song Information from API call -->
+            <h4>Title: <% @title = @response["objects"][0]["title"] %><%= @title %></h4>
 
-        <h4>Songwriter(s):
-          <% @response["objects"][0]["authors"].each do |authors| %>
-            <% @authors = authors["name"] %>
-            <%= @authors %>
-          <% end %></h4>
+            <h4>Songwriter(s):
+              <% @response["objects"][0]["authors"].each do |authors| %>
+                <% @authors = authors["name"] %>
+                <%= @authors %>
+              <% end %></h4>
 
-        <% @permalink = @response["objects"][0]["permalink"] %>
-        <a href="<%= @permalink %>"><h4>Link To Song</h4></a>
+              <% @permalink = @response["objects"][0]["permalink"] %>
+              <a href="<%= @permalink %>"><h4>Link To Song</h4></a>
 
-        <h4>Lyrics & Chords:
-          <% @body_chords_html = @response["objects"][0]["body_chords_html"] %><%== @body_chords_html %></h4><br>
+              <h4>Lyrics & Chords:
+              <% @body_chords_html = @response["objects"][0]["body_chords_html"] %><%== @body_chords_html %></h4><br>
 
 
-        <% @chords_img_arr = [] %>
+              <% @chords_img_arr = [] %>
 
-        <h4><%= @song %> Chords: </h4><br>
-          <% @response["objects"][0]["chords"].each do |chord| %>
-            <% @image_url = chord["image_url"] %>
-            <img src=<%= @image_url %>>
+              <h4><%= @song %> Chords: </h4><br>
+                <% @response["objects"][0]["chords"].each do |chord| %>
+                  <% @image_url = chord["image_url"] %>
+                  <img src=<%= @image_url %>>
 
-            <% @chords_img_arr.push( @image_url ) %>
-          <% end %>
+                  <% @chords_img_arr.push( @image_url ) %>
+                <% end %>
 
-          <!-- Save Button to Save Song to SongBook -->
-          <p id="savebttn">
-            <p>
-              <%= link_to '<i class="medium material-icons icon-green">library_add</i>'.html_safe, {action: :create, controller: :songs, song_search: @song, user_id: current_user.id, title: @title, permalink: @permalink, authors: @authors, name: @name, code: @code, chords_img_arr: @chords_img_arr}, method: :post, remote: :true %>
-              <br>
-              Save to Songbook
-            </p>
-          </p>
+              <!-- Save Button to Save Song to SongBook -->
+              <p id="savebttn">
+                <p>
+                  <%= link_to '<i class="medium material-icons icon-green">library_add</i>'.html_safe, {action: :create, controller: :songs, song_search: @song, user_id: current_user.id, title: @title, permalink: @permalink, authors: @authors, name: @name, code: @code, chords_img_arr: @chords_img_arr}, method: :post, remote: :true %>
+                  <br>
+                  Save to Songbook
+                </p>
+              </p>
 
       <% else %>
           <h4>Please search again.</h4>

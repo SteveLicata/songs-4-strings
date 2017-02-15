@@ -6,9 +6,7 @@ class SongsController < ApplicationController
     @songs = Song.all
     @user = User.find(current_user.id)
     @saved_songs = @user.songs
-    # puts "SAVED SONGS: ", @saved_songs.inspect
     @all_playlists = Playlist.all
-    # puts "All Playlists", @playlist.inspect
   end
 
   def song_form
@@ -18,20 +16,14 @@ class SongsController < ApplicationController
   def song_guitar_party_api
     @message = "Songs"
     @song = params[:song_search]
-    puts "current user", current_user.inspect
 
       if current_user != nil
         @user = User.find(current_user.id)
         @response = HTTParty.get("https://api.guitarparty.com/v2/songs/?query=#{@song}", headers: {"Guitarparty-Api-Key" => "#{ENV['GUITAR_PARTY_API_KEY']}"})
-
-        puts "HERE IS RESPONSE:", @response.inspect
       end
   end
 
   def create
-    puts "LET'S CREATE A NEW SONG STEVE!"
-    puts "PARAMS:", params
-
     # Create new song:
     @new_song = Song.new(
       song_search: params[:song_search],
@@ -45,7 +37,7 @@ class SongsController < ApplicationController
     )
     @new_song.save
 
-    puts "THIS IS THE NEW SONG'S ID:", @new_song.inspect
+    # puts "THIS IS THE NEW SONG'S ID:", @new_song.inspect
 
     # Parameters: {
     #   "authors"=>"Shifty Shellshock",
@@ -104,7 +96,6 @@ class SongsController < ApplicationController
   end
 
   def update
-    puts "check here", params.inspect
     @song = Song.find(params[:id])
     @song.update({
       song_search: params[:song_search],
@@ -129,11 +120,7 @@ class SongsController < ApplicationController
   end
 
   def add_song_to_a_playlist
-    puts "ADD SONG TO PLAYLIST"
-    puts params.inspect
-
     # Parameters: {"playlist_id"=>"3", "song_id"=>"2"}
-
     # Connects Playlist ID and Song ID for adding song to playlist
     Song.find(params[:song_id]).playlists << Playlist.find(params[:playlist_id])
 

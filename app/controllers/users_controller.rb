@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-
+  #devise 
   before_action :authenticate_user!
 
   def show

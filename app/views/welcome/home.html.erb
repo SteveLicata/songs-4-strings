@@ -21,61 +21,61 @@
 
   <!-- SVG image links - take user to different routes depending if signed in or out -->
   <div class="welcome container">
-  <div class="row welcometext">
-    <div class="col s12">
+    <div class="row welcometext">
+      <div class="col s12">
 
-      <h4>
-        <% if (user_signed_in?) %>
+        <h4>
+          <% if (user_signed_in?) %>
 
-          <%= link_to '<i class="material-icons">search</i>'.html_safe, chord_search_path %>
+            <%= link_to '<i class="material-icons">search</i>'.html_safe, chord_search_path %>
 
-        <% else %>
+          <% else %>
 
-          <%= link_to '<i class="material-icons">search</i>'.html_safe, new_user_session_path %>
+            <%= link_to '<i class="material-icons">search</i>'.html_safe, new_user_session_path %>
 
-        <% end %>
-      <h4>
+          <% end %>
+        <h4>
 
-      <h4>
-        Create a personal Songbook or Chordbook.
-      </h4>
-        <br>
-        <br>
-      <h4>
-        <% if (user_signed_in?) %>
+        <h4>
+          Create a personal Songbook or Chordbook.
+        </h4>
+          <br>
+          <br>
+        <h4>
+          <% if (user_signed_in?) %>
 
-          <%= link_to '<i class="material-icons">library_music</i>'.html_safe, songs_path %>
+            <%= link_to '<i class="material-icons">library_music</i>'.html_safe, songs_path %>
 
-        <% else %>
+          <% else %>
 
-          <%= link_to '<i class="material-icons">library_music</i>'.html_safe, new_user_registration_path %>
+            <%= link_to '<i class="material-icons">library_music</i>'.html_safe, new_user_registration_path %>
 
-        <% end %>
+          <% end %>
 
-      </h4>
+        </h4>
 
-      <h4>
-        Create and manage Setlists.
-      </h4>
+        <h4>
+          Create and manage Setlists.
+        </h4>
 
-    </div>
-  </div>
-  <br><br>
-
-  <!-- Materialize IMage Carousel -->
-  <div class="row">
-    <div class="col s12">
-
-      <div class="carousel">
-        <a class="carousel-item" href="#one!"><img class="carouselimage"  src="/assets/acoustic2.jpg"></a>
-        <a class="carousel-item" href="#two!"><img class="carouselimage" src="/assets/sheetmusic2.jpg"></a>
-        <a class="carousel-item" href="#three!"><img class="carouselimage" src="/assets/acoustic3.jpg"></a>
-        <a class="carousel-item" href="#four!"><img class="carouselimage" src="/assets/piano1.jpg"></a>
-        <a class="carousel-item" href="#five!"><img class="carouselimage" src="/assets/acoustic4.jpg"></a>
       </div>
-
     </div>
-  </div>
+    <br><br>
+
+    <!-- Materialize IMage Carousel -->
+    <div class="row">
+      <div class="col s12">
+
+        <div class="carousel">
+          <a class="carousel-item" href="#one!"><img class="carouselimage"  src="/assets/acoustic2.jpg"></a>
+          <a class="carousel-item" href="#two!"><img class="carouselimage" src="/assets/sheetmusic2.jpg"></a>
+          <a class="carousel-item" href="#three!"><img class="carouselimage" src="/assets/acoustic3.jpg"></a>
+          <a class="carousel-item" href="#four!"><img class="carouselimage" src="/assets/piano1.jpg"></a>
+          <a class="carousel-item" href="#five!"><img class="carouselimage" src="/assets/acoustic4.jpg"></a>
+        </div>
+
+      </div>
+    </div>
 
 
-</div
+</div>

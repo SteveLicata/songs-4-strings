@@ -15,13 +15,11 @@ class ChordsController < ApplicationController
   def chord_guitar_party_api
     @message = "Chords"
     @chord = params[:chord_search]
-    puts "current user", current_user.inspect
 
       if current_user != nil
         @user = User.find(current_user.id)
         @response = HTTParty.get("https://api.guitarparty.com/v2/chords/?query=#{@chord}", headers: {"Guitarparty-Api-Key" => "#{ENV['GUITAR_PARTY_API_KEY']}"})
-
-        puts "HERE IS RESPONSE:", @response.inspect
+        # puts "HERE IS RESPONSE:", @response.inspect
       end
   end
 
@@ -42,7 +40,6 @@ class ChordsController < ApplicationController
   end
 
   def update
-    puts "check here", params.inspect
     @chord = Chord.find(params[:id])
     @chord.update({
       chord_search: params[:chord_search],
